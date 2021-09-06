@@ -52,26 +52,17 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 int check_cycle(listint_t *list)
 {
-	int size = 10, i;
-	listint_t *current = list, **nodes = malloc(sizeof(listint_t) * size);
+	listint_t *fast = list->next, *slow = list;
 
-	if (!nodes || !current)
+	if (!list)
 		return (0);
 
-	while (current)
+	while (slow != NULL && fast != NULL && fast->next != NULL)
 	{
-		for (i = 0; nodes[i] != NULL; i++)
-		{
-			if (current == nodes[i])
-				return (1);
-		}
-		if (i == size || i > size)
-		{
-			size += 10;
-			nodes = _realloc(nodes, sizeof(listint_t) * (size - 10), sizeof(listint_t) * size);
-		}
-		nodes[i] = current;
-		current = current->next;
+		if (slow == fast)
+			return (1);
+		fast = fast->next->next;
+		slow = slow->next;
 	}
 	return (0);
 }
