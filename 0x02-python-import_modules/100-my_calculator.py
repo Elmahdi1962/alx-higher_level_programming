@@ -2,10 +2,10 @@
 def main(argv):
     argc = len(argv)
     ops = {
-        '+' : operator.add,
-        '-' : operator.sub,
-        '*' : operator.mul,
-        '/' : operator.truediv,
+        '+': operator.add,
+        '-': operator.sub,
+        '*': operator.mul,
+        '/': operator.truediv,
     }
     if argc != 4:
         print('Usage: {} <a> <operator> <b>'.format(argv[0]))
@@ -18,9 +18,6 @@ def main(argv):
         exit(1)
     res = ops[op](a, b)
     print('{} {} {} = {}'.format(a, op, b, res))
-
-
-
 
 
 if __name__ == '__main__':
