@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-from sys import argv
-
-
 def main(argv):
     i = 1
     if len(argv) < 2:
@@ -17,4 +14,5 @@ def main(argv):
             print("{}: {}".format(i, arg))
             i += 1
 if __name__ == "__main__":
+    from sys import argv
     main(argv)
