@@ -5,7 +5,7 @@ def main(argv):
         '+': operator.add,
         '-': operator.sub,
         '*': operator.mul,
-        '/': operator.div,
+        '/': operator.truediv,
     }
     if argc != 4:
         print('Usage: {} <a> <operator> <b>'.format(argv[0]))
