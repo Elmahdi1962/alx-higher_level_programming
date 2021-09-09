@@ -8,7 +8,7 @@ def main(argv):
         '/': operator.truediv,
     }
     if argc != 4:
-        print('Usage: {} <a> <operator> <b>'.format(argv[0]))
+        print('Usage: {:s} <a> <operator> <b>'.format(argv[0]))
         exit(1)
     a = int(argv[1])
     b = int(argv[3])
