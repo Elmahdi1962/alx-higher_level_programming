@@ -41,7 +41,11 @@ int is_palindrome(listint_t **head)
 	for (i = 0; i < (list_len + 1) / 2; i++)
 	{
 		if (list_numbers[i] != list_numbers[(list_len - 1) - i])
+		{
+			free(list_numbers);
 			return (0);
+		}
 	}
+	free(list_numbers);
 	return (1);
 }
