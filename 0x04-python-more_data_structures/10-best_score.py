@@ -3,7 +3,7 @@ def best_score(a_dictionary):
     if a_dictionary is None:
         return None
     bgs = -1
-    bgk = ''
+    bgk = None
     for key in a_dictionary.keys():
         if a_dictionary[key] > bgs:
             bgs = a_dictionary[key]
