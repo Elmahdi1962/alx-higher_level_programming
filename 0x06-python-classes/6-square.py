@@ -26,17 +26,24 @@ class Square:
 
     @property
     def size(self):
-        """getter of size
-        Returns:
-            size attribute.
+        """
+        getter of size
+        Return:
+            Size of square
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """setter of size
-        args:
-            value (int): size of square.
+        """
+        Setter of size
+        Args:
+            value (int): size
+        Raises
+            TypeError: if size is not int
+            ValueError: size less than 0
+        Returns:
+            None
         """
         if type(value) != int:
             raise TypeError("size must be an integer")
@@ -47,17 +54,19 @@ class Square:
 
     @property
     def position(self):
-        """getter of position.
-        Returns:
-            position attribute.
+        """
+        get postion attribute
         """
         return self.__position
 
     @position.setter
     def position(self, value):
-        """setter of position.
-        args:
-            value (tuple): position.
+        """
+            setter of position
+        Args:
+            value (tuple): position of the square in 2D space
+        Returns:
+            None
         """
         if type(value) != tuple or type(value[0]) != int or type(value[1]) != int or value[0] < 0 or value[1] < 0 or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -65,21 +74,23 @@ class Square:
             self.__position = value
 
     def area(self):
-        """returns Square surface.
-        Returns:
-            Square surface.
+        """
+        get area
+        Return:
+            area (int)
         """
         return self.__size * self.__size
 
     def my_print(self):
-        """print a square.
+        """
+        print a square
         Returns:
-            None.
+            None
         """
         if self.size == 0:
             print()
         else:
             print('\n'*self.__position[1], end='')
-            for i in range(0, self.__size):
+            for i in range(self.__size):
                 print(' '*self.__position[0], end='')
                 print('#'*self.__size)
