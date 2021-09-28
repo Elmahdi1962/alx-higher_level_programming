@@ -9,14 +9,7 @@ class Square:
     """class for Square."""
 
     def __init__(self, size=0):
-        """Initialize class and check if it's an integer and if less than 0.
-
-        args:
-            size (int, optional): size of the square.
-        Raises:
-            TypeError: raised when the arg size is not integer.
-            ValueError: raised when the arg size is lees than 0.
-        """
+        """Initialize class and check if it's an integer and if less than 0."""
         if type(size) != int:
             raise TypeError("size must be an integer")
         elif size < 0:
