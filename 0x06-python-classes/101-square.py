@@ -98,11 +98,9 @@ class Square:
         """
         defining printing behavior of the class
         """
-        if self.size == 0:
-            print()
-        else:
-            print('\n'*self.__position[1], end='')
-            for i in range(self.__size):
-                print(' '*self.__position[0], end='')
-                print('#'*self.__size)
-        return ""
+        if self.__size == 0:
+            return ''
+        new_lines = '\n' * self.position[1]
+        spaces = ' ' * self.position[0]
+        hashes = '#' * self.size
+        return new_lines + '\n'.join(spaces + hashes for e in range(self.size))
