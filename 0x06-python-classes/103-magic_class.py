@@ -1,9 +1,10 @@
 #!/usr/bin/python
+"""magic class definition"""
 import math
-"""defining magic class"""
 
 
 class MagicClass:
+    """magicclass that makes same bytecode as in the task"""
 
     def __init__(self, radius=0):
         """Initialize class"""
