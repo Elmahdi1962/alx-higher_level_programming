@@ -3,9 +3,19 @@
 
 
 class Square:
-    """ Square class"""
+    """ Square class defined
+        Attributes:
+            size (int): Size of square
+            position (tuple): position of space and new lines
+    """
     def __init__(self, size=0, position=(0, 0)):
-        """Initialize Square."""
+        """initializes
+        Args:
+            size (int): size
+            postion(tuple): postion
+        Returns:
+            None
+        """
         if type(size) != int:
             raise TypeError("size must be an integer")
         elif size < 0:
@@ -16,7 +26,7 @@ class Square:
 
     @property
     def size(self):
-        """gets size attribute.
+        """getter of size
         Returns:
             size attribute.
         """
@@ -24,9 +34,9 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """sets value in size attribute.
-        Returns:
-            None.
+        """setter of size
+        args:
+            value (int): size of square.
         """
         if type(value) != int:
             raise TypeError("size must be an integer")
@@ -37,7 +47,7 @@ class Square:
 
     @property
     def position(self):
-        """gets position attributes.
+        """getter of position.
         Returns:
             position attribute.
         """
@@ -45,9 +55,9 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """sets value in position attribute.
-        Returns:
-            None.
+        """setter of position.
+        args:
+            value (tuple): position.
         """
         if type(value) != tuple or type(value[0]) != int or type(value[1]) != int or value[0] < 0 or value[1] < 0 or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
