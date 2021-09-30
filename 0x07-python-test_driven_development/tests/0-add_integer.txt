@@ -30,3 +30,16 @@ Now Testing:
     Traceback (most recent call last):
 	    ...
     TypeError:
+
+    test if it gor only one argument
+
+    >>> r = add_integer(-5) # doctest: +ELLIPSIS
+    >>> print(r)
+    93
+
+    test if it gor only one argument
+
+    >>> r = add_integer(None) # doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError: ... must be an integer ...
