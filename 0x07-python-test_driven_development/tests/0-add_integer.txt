@@ -1,0 +1,32 @@
+0-add_integer.txt
+The 0-add_integer.py module
+======================
+
+Using ``add_integer``
+-------------------
+
+Testing the add_integer function.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Now Testing:
+
+    test if it raises TypeError if arguments aren't int of float
+
+    >>> add_integer('hi', 5) # doctest: +IGNORE_EXCEPTION_DETAIL, +ELLIPSIS
+    Traceback (most recent call last):
+    TypeError: ... must be an integer ...
+
+    test if floats are casted to int
+
+    >>> r = add_integer(4.54, 5) # doctest: +ELLIPSIS
+    >>> print(r)
+    9
+
+    test if it will raise a error when passing no arguments
+
+    >>> r = add_integer() # doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+	    ...
+    TypeError:
