@@ -1,0 +1,79 @@
+The 3-say_my_name module
+=========================
+
+Using ``say_my_name``
+---------------------
+
+Importing say_my_name from 3-say_my_name
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Now Testing :-**-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*
+
+    TestCase_1: pass the function two strings
+
+    >>> say_my_name('elmahdi', 'mamoun')
+    My name is elmahdi mamoun
+
+***************************************************
+
+    TestCase_2: pass the function only the first string argument
+
+    >>> say_my_name('elmahdi')
+    My name is elmahdi 
+
+***************************************************
+
+    TestCase_3: don't pass any arguments
+
+    >>> say_my_name() #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+***************************************************
+
+    TestCase_4: pass an integer in the first argument
+
+    >>> say_my_name(2) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+***************************************************
+
+    TestCase_5: pass an integer in the second argument
+
+    >>> say_my_name('elmahdi', 2) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+***************************************************
+
+    TestCase_6: passing None in first argument
+
+    >>> say_my_name(None) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+***************************************************
+
+    TestCase_7: pass it a boolean True
+
+    >>> say_my_name(True) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+***************************************************
+
+    TestCase_8: pass it a boolean False
+
+    >>> say_my_name(False) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+***************************************************
