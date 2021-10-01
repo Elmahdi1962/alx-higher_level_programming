@@ -1,0 +1,73 @@
+The 4-print_square module
+=========================
+
+Using ``print_square``
+----------------------
+
+Importing print_square from 4-print_square
+
+    >>> print_square = __import__('4-print_square').print_square
+
+Now Testing:####################################################
+
+    TestCase_1: pass it  4 to print a square of size 4
+
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+****************************************************************
+
+    TestCase_2: pass it  0 to print a square of size 0
+
+    >>> print_square(0)
+    
+
+****************************************************************
+
+    TestCase_3: pass it  -4 to print a square of size -4
+
+    >>> print_square(-4) #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+****************************************************************
+
+    TestCase_4: pass it  a string intead of a integer
+
+    >>> print_square('0') # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+****************************************************************
+
+    TestCase_5: pass it  a boolean instead of a integer
+
+    >>> print_square(True) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+****************************************************************
+
+    TestCase_6: pass it  a negative float instead of a integer
+
+    >>> print_square(-2.5) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+****************************************************************
+
+    TestCase_7: pass it  None
+
+    >>> print_square(None) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+****************************************************************
