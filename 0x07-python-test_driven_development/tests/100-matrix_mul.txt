@@ -1,0 +1,99 @@
+The 100-matrix_mul module
+=========================
+
+Using ``matrix_mul``
+--------------------
+
+Importing matrix_mul from 100-matrix_mul module
+
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now Testing:########################################
+
+	TestCase_1: pass it 2 matrices that can be multiplied 
+
+	>>> r = matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+	>>> print(r)
+	[[13, 16]]
+
+****************************************************
+
+	TestCase_2: pass it 2 matrices that can't be multiplied 
+
+	>>> r = matrix_mul([[1, 2]], [[3, 4]]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	ValueError: m_a and m_b can't be multiplied
+
+****************************************************
+
+	TestCase_3: pass it 2 matrices that have strings in them
+
+	>>> r = matrix_mul([['1', 2]], [[3, 4], [5, 6]]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: m_a should contain only integers or floats
+
+****************************************************
+
+	TestCase_4: pass it 2 empty matrices
+
+	>>> r = matrix_mul([[]], [[], []]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	ValueError: m_a can't be empty
+
+****************************************************
+
+	TestCase_5: pass it 2 numbers instead of matrices
+
+	>>> r = matrix_mul(2, 5) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: m_a must be a list
+
+****************************************************
+
+	TestCase_6: pass it None
+
+	>>> r = matrix_mul(None, None) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: m_a must be a list
+
+****************************************************
+
+	TestCase_7: pass it no arguments
+
+	>>> r = matrix_mul() # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: ...
+
+****************************************************
+
+	TestCase_8: pass it a matrix that is not a rectangle
+
+	>>> r = matrix_mul([[1, 2]], [[3, 4], [5, 6, 7]]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: each row of m_b must be of the same size
+
+****************************************************
+
+	TestCase_9: pass it a list of integers instead of list of list of integers
+
+	>>> r = matrix_mul([1, 2, 3, 4], [1, 2, 3, 4]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: m_a must be a list of lists
+
+****************************************************
+
+	TestCase_9: pass it matrices of floats
+
+	>>> r = matrix_mul([[1.2, 2.44587]], [[1.1, 2.333], [2.5, 5.4]])
+	>>> print(r) # doctest: +ELLIPSIS
+	[[..., ...]]
+
+****************************************************
