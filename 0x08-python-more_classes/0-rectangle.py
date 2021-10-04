@@ -4,4 +4,5 @@
 
 
 class Rectangle:
+    '''forgot this useless comment'''
     pass
