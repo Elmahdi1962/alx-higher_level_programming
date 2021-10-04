@@ -55,4 +55,3 @@ class Rectangle:
         else:
             hashes = '#' * self.__width
             return '\n'.join(hashes for h in range(self.__height))
-
