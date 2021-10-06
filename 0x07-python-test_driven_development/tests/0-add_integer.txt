@@ -67,6 +67,15 @@ Now Testing:
 ------------------------------------
     test for float overflow
 
-    >>> r = add_integer(1.7976931348623157e+310) # doctest: +ELLIPSIS
+    >>> negative_infinity = float('-inf')
+    >>> r = add_integer(negative_infinity)
+    >>> print(r)
+    89
+
+------------------------------------
+    test for float overflow
+
+    >>> positive_infinity = float('inf')
+    >>> r = add_integer(positive_infinity)
     >>> print(r)
     89
