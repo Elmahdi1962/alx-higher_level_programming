@@ -77,11 +77,10 @@ Now Testing:
 
     >>> math = __import__('math')
     >>> positive_infinity = float('inf')
-    >>> type(positive_infinity) == float
+    >>> positive_infinity == float('inf')
     True
-    >>> math.isinf(positive_infinity)
-    True
-    >>> r = add_integer(positive_infinity)
+
+    >>> r = add_integer(float('inf'))
     >>> type(r) == float
     False
     >>> print(r)
