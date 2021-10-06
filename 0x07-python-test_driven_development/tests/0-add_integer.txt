@@ -81,9 +81,3 @@ Now Testing:
     False
     >>> print(r)
     89
-
-------------------------------------
-    test for Type
-
-    >>> type(r) == float
-    False
