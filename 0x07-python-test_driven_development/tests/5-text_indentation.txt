@@ -121,3 +121,11 @@ Now Testing:#######################################
 
 
 ***************************************************
+
+
+	TestCase_10: pass it “Holberton School”
+
+	>>> text_indentation("Holberton School")
+	Holberton School
+
+***************************************************
