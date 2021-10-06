@@ -76,6 +76,10 @@ Now Testing:
     test for float overflow
 
     >>> positive_infinity = float('inf')
+    >>> type(positive_infinity) == float
+    True
+    >>> positive_infinity is float('inf')
+    True
     >>> r = add_integer(positive_infinity)
     >>> type(r) == float
     False
