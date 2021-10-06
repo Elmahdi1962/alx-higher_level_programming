@@ -23,12 +23,10 @@ def matrix_divided(matrix, div):
             raise TypeError('Each row of the matrix must have the same size')
 
         new_list = list()
-
+        err = 'matrix must be a matrix (list of lists) of integers/floats'
         for e in lst:
             if type(e) is not int and type(e) is not float:
-                raise TypeError(
-                    'matrix must be a matrix (list of lists) of integers/floats'
-                    )
+                raise TypeError(err)
             new_list.append(round(e / div, 2))
 
         new_matrix.append(new_list)
