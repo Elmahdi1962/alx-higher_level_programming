@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_python_string : prints info about python string
+ * print_python_string - prints info about python string
  * @p: pyobject
  * Return: void
  */
