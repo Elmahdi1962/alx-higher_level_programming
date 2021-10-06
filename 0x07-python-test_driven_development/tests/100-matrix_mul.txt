@@ -105,3 +105,57 @@ Now Testing:########################################
 	[[19, 22, 5], [43, 50, 11], [43, 50, 11]]
 
 ****************************************************
+
+	TestCase_11: pass it 1 matrix and a string
+
+	>>> r = matrix_mul([[1, 2], [3, 4], [3, 4]], "test") # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: m_b must be a list
+
+****************************************************
+
+	TestCase_12: pass it 1 matrix and a LIST
+
+	>>> r = matrix_mul([[1, 2], [3, 4], [3, 4]], [1, 2, 3]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: m_b must be a list of lists
+
+****************************************************
+
+	TestCase_13: pass it 1 matrix and a empty LIST
+
+	>>> r = matrix_mul([[1, 2], [3, 4], [3, 4]], [[]]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	ValueError: m_b can't be empty
+
+****************************************************
+
+	TestCase_13: pass it 1 matrix and a empty matrix of strings
+
+	>>> r = matrix_mul([[1, 2], [3, 4], [3, 4]], [['1', '2'], ['3', '4']]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: m_b should contain only integers or floats
+
+****************************************************
+
+	TestCase_14: pass it 2 matrices m_a not same size
+
+	>>> r = matrix_mul([[1, 2, 5], [3, 4], [3, 4]], [[1, 2], [3, 4]]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: each row of m_a must be of the same size
+
+****************************************************
+
+	TestCase_15: pass it 1 matrix only
+
+	>>> r = matrix_mul([[1, 2, 5]], [3, 4]) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: ...
+
+****************************************************
