@@ -15,7 +15,7 @@ Now Testing:-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
     >>> r = matrix_divided([[1, 2, 3],[4, 5, '6']], 3) # doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
     
 ***************************************************
 
@@ -24,7 +24,7 @@ Now Testing:-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
     >>> r = matrix_divided([[1, True, 3],[4, 5, 6]], 3) # doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
     
 ***************************************************
 
@@ -33,7 +33,7 @@ Now Testing:-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
     >>> r = matrix_divided([[False, 2, 3],[4, 5, 6]], 3) # doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
     
 ***************************************************
 
