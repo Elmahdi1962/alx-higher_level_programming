@@ -1,4 +1,11 @@
-#include "Python.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <python3.4/Python.h>
+#include <python3.4/object.h>
+#include <python3.4/unicodeobject.h>
+#define PY_SSIZE_T_CLEAN
 
 /**
  * print_python_string - Prints information about Python strings.
