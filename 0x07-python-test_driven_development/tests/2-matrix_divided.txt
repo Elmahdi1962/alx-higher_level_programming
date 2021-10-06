@@ -97,3 +97,19 @@ Now Testing:-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
     TypeError: ...
 
 ***************************************************
+
+    testing with a division number float(inf)
+
+    >>> r = matrix_divided([[1, 2, 4],[5, 7, 8]], float('inf'))
+    >>> print(r)
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+***************************************************
+    testing with 1 arguments missing
+
+    >>> r = matrix_divided([[2, 1], [3, 4]]) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+***************************************************
