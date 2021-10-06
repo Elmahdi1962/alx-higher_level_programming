@@ -81,3 +81,10 @@ Now Testing:
     False
     >>> print(r)
     89
+
+--------------------------------------
+    >>> r = add_integer(positive_infinity) #not sure what to pass  
+    >>> type(r) == float
+    False
+    >>> print(r)
+    89
