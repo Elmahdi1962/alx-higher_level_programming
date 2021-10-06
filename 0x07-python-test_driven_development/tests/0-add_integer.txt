@@ -78,7 +78,7 @@ Now Testing:
     >>> positive_infinity = float('inf')
     >>> type(positive_infinity) == float
     True
-    >>> positive_infinity is float('inf')
+    >>> positive_infinity == float('inf')
     True
     >>> r = add_integer(positive_infinity)
     >>> type(r) == float
