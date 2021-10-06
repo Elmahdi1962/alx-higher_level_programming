@@ -67,7 +67,7 @@ Now Testing:
 ------------------------------------
     test for float overflow
 
-    >>> negative_infinity = float('-inf')
+    >>> negative_infinity = -float('inf')
     >>> r = add_integer(negative_infinity)
     >>> print(r)
     89
