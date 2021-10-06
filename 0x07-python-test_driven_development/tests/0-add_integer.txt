@@ -63,3 +63,10 @@ Now Testing:
     Traceback (most recent call last):
         ...
     TypeError: ...must be an integer
+
+------------------------------------
+    test for float overflow
+
+    >>> r = add_integer(1.7976931348623157e+310) # doctest: +ELLIPSIS
+    >>> print(r)
+    89
