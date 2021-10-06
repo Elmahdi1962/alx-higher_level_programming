@@ -18,9 +18,17 @@ class TestMaxInteger(unittest.TestCase):
         '''tests with a list of floats'''
         self.assertEqual(max_integer([1.5, 2.4, 3.1]), 3.1)
 
+    def test_list_of_floats_max_mid(self):
+        '''tests with a list of floats'''
+        self.assertEqual(max_integer([1.5, 3.1, 2.1]), 3.1)
+
     def test_empty_list(self):
         '''tests with a empty list'''
         self.assertEqual(max_integer([]), None)
+
+    def test_list_with_one_element(self):
+        '''tests with a empty list'''
+        self.assertEqual(max_integer([1]), 1)
 
     def test_list_of_negative_ints(self):
         '''tests with a list of negative integers'''
