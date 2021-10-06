@@ -67,7 +67,7 @@ def matrix_mul(m_a, m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
     new_matrix = list()
-    c_size = len(m_a[0])
+    c_size = len(m_b[1])
 
     for l in m_a:
         ls = []
