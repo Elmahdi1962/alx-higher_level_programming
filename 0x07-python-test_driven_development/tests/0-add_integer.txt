@@ -77,5 +77,13 @@ Now Testing:
 
     >>> positive_infinity = float('inf')
     >>> r = add_integer(positive_infinity)
+    >>> type(r) == float
+    False
     >>> print(r)
     89
+
+------------------------------------
+    test for Type
+
+    >>> type(r) == float
+    False
