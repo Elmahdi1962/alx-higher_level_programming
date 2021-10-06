@@ -71,3 +71,12 @@ Now Testing:####################################################
     TypeError: ...
 
 ****************************************************************
+
+    TestCase_7: pass it  No argument
+
+    >>> print_square() # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: ...
+
+****************************************************************

@@ -65,7 +65,7 @@ Now Testing:
     TypeError: ...must be an integer
 
 ------------------------------------
-    test for float overflow
+    test for negative float overflow
 
     >>> negative_infinity = -float('inf')
     >>> r = add_integer(negative_infinity)
@@ -73,15 +73,14 @@ Now Testing:
     89
 
 ------------------------------------
-    test for float overflow
+    test for positive float overflow
 
-    >>> math = __import__('math')
     >>> positive_infinity = float('inf')
     >>> positive_infinity == float('inf')
     True
     >>> positive_infinity is float('inf')
     False
-    >>> r = add_integer(float('inf'))
+    >>> r = add_integer(positive_infinity)
     >>> type(r) == float
     False
     >>> print(r)
