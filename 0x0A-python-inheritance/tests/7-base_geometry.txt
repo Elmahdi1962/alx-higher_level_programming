@@ -1,0 +1,44 @@
+The 7-base_geometry module
+====================
+
+Using ``integer_validator``
+----------------------
+
+Importing the class ``BaseGeometry`` from the module ``7-base_geometry``
+
+	>>> bg = __import__('7-base_geometry').BaseGeometry
+
+Now Testing:
+
+***********************************************
+	Tese_case 1: value = integer
+
+	>>> var = bg()
+	>>> var.integer_validator('number', 15)
+
+***********************************************
+	Tese_case 1: value = string
+
+	>>> var = bg()
+	>>> var.integer_validator('number', '15') # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+	...
+	TypeError: number must be an integer
+
+***********************************************
+	Tese_case 1: value = number less  than 0
+
+	>>> var = bg()
+	>>> var.integer_validator('number', -1) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+	...
+	ValueError: number must be greater than 0
+
+***********************************************
+	Tese_case 1: value  = 0
+
+	>>> var = bg()
+	>>> var.integer_validator('number', 0) # doctest: +ELLIPSIS
+	Traceback (most recent call last):
+	...
+	ValueError: number must be greater than 0
