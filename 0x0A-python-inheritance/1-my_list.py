@@ -3,15 +3,14 @@
 
 
 class MyList(list):
-    '''class that derives from list class'''
+    """class utilizing list class"""
 
     def __init__(self):
-        '''Initialization of the subclass'''
-        super()
+        """initializer for MyList"""
         pass
 
     def print_sorted(self):
-        '''function that prints the list sorted way ascending'''
-        nl = list.copy(self)
-        list.sort(nl)
-        print(nl)
+        """print sorted list"""
+        res = list.copy(self)
+        list.sort(res)
+        print(res)
