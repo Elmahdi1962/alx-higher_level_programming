@@ -12,6 +12,24 @@ Now Testing:
 
 ***********************************************
 
+	Test_Case 1: test wit normal list of integers
+
 	>>> ls = MyList([1,3,2,4,5])
 	>>> ls.print_sorted()
 	[1, 2, 3, 4, 5]
+
+***********************************************
+
+	Test_Case 2: test with list of strings
+
+	>>> ls = MyList(['1','3','2','4','5'])
+	>>> ls.print_sorted()
+	['1', '2', '3', '4', '5']
+
+***********************************************
+
+	Test_Case 2: test with list of booleans
+
+	>>> ls = MyList([True,False,True,False])
+	>>> ls.print_sorted()
+	[False, False, True, True]
