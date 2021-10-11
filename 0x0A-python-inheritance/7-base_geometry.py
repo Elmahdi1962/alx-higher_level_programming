@@ -2,9 +2,6 @@
 '''task 7 module'''
 
 
-from typing import Type
-
-
 class BaseGeometry:
     '''empty class'''
     def __init__(self):
