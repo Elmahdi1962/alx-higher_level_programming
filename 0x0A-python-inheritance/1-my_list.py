@@ -5,7 +5,7 @@
 class MyList(list):
     '''class that derives from list class'''
 
-    def __init__(self)
+    def __init__(self):
         '''Initialization of the subclass'''
         pass
 
