@@ -24,7 +24,7 @@ def printer():
     print(f'File size: {total_size}')
     for key, value in sorted(status_codes.items()):
         if value > 0:
-            print('{:d}: {:d}'.format(key, value))
+            print('{:s}: {:d}'.format(key, value))
 
 
 try:
