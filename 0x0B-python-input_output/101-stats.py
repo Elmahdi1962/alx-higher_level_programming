@@ -3,7 +3,7 @@
 
 
 from sys import stdin
-import signal
+
 
 status_codes = {
         200: 0,
@@ -19,7 +19,7 @@ status_codes = {
 total_size = i = 0
 
 
-def printer(signum, frame):
+def printer():
     '''this function prints the statistics'''
     print(f'File size: {total_size}', flush=True)
     for key, value in status_codes.items():
@@ -36,7 +36,9 @@ try:
         i += 1
 
         if i >= 10:
-            printer(1, 1)
+            printer()
             i = 0
+    printer()
 except KeyboardInterrupt as e:
-    printer(1, 1)
+    printer()
+    raise
