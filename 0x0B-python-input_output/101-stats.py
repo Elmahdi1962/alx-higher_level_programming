@@ -29,10 +29,13 @@ def printer():
 
 try:
     for line in stdin:
-        splitted_line = line.split(' ')
-        status = int(splitted_line[-2])
-        total_size += int(splitted_line[-1])
-        status_codes[status] += 1
+        try:
+            splitted_line = line.split(' ')
+            status = int(splitted_line[-2])
+            total_size += int(splitted_line[-1])
+            status_codes[status] += 1
+        except Exception:
+            pass
         i += 1
 
         if i >= 10:
