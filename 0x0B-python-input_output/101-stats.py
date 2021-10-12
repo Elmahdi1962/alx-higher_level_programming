@@ -27,14 +27,17 @@ def printer(signum, frame):
             print(f'{key}: {value}', flush=True)
 
 
-for line in sys.stdin:
-    idx_status = line.find('1.1"') + 5
-    idx_size = idx_status + 4
-    status = line[idx_status:idx_status+3]
-    total_size += int(line[idx_size:idx_size+4])
-    status_codes[status] += 1
-    i += 1
-    signal.signal(signal.SIGINT, printer)
-    if i >= 10:
-        printer(1, 1)
-        i = 0
+try:
+    for line in sys.stdin:
+        idx_status = line.find('1.1"') + 5
+        idx_size = idx_status + 4
+        status = line[idx_status:idx_status+3]
+        total_size += int(line[idx_size:idx_size+4])
+        status_codes[status] += 1
+        i += 1
+
+        if i >= 10:
+            printer(1, 1)
+            i = 0
+except KeyboardInterrupt as e:
+    printer(1, 1)
