@@ -21,10 +21,10 @@ total_size = i = 0
 
 def printer():
     '''this function prints the statistics'''
-    print(f'File size: {total_size}', flush=True)
+    print(f'File size: {total_size}')
     for key, value in sorted(status_codes.items()):
         if value > 0:
-            print(f'{key}: {value}', flush=True)
+            print(f'{key}: {value}')
 
 
 try:
