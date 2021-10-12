@@ -2,7 +2,7 @@
 '''task 14 module'''
 
 
-import sys
+from sys import stdin
 import signal
 
 status_codes = {
@@ -28,11 +28,10 @@ def printer(signum, frame):
 
 
 try:
-    for line in sys.stdin:
-        idx_status = line.find('1.1"') + 5
-        idx_size = idx_status + 4
-        status = line[idx_status:idx_status+3]
-        total_size += int(line[idx_size:idx_size+4])
+    for line in stdin:
+        splitted_line = line.split(' ')
+        status = splitted_line[-2]
+        total_size += int(splitted_line[-1])
         status_codes[status] += 1
         i += 1
 
