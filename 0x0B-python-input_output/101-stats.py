@@ -1,43 +1,40 @@
 #!/usr/bin/python3
-'''task 14 module'''
+"""
+reads stdin line by line and computes metrics
+"""
+import sys
 
-
-from sys import stdin
-
-
-status_codes = {
-        200: 0,
-        301: 0,
-        400: 0,
-        401: 0,
-        403: 0,
-        404: 0,
-        405: 0,
-        500: 0
-        }
-
-total_size = i = 0
-
-
-def printer():
-    '''this function prints the statistics'''
-    print(f'File size: {total_size}')
-    for key, value in sorted(status_codes.items()):
-        if value > 0:
-            print(f'{key}: {value}')
-
-
+file_size = 0
+status_tally = {"200": 0, "301": 0, "400": 0, "401": 0,
+                "403": 0, "404": 0, "405": 0, "500": 0}
+i = 0
 try:
-    for line in stdin:
-        splitted_line = line.split(' ')
-        status = int(splitted_line[-2])
-        total_size += int(splitted_line[-1])
-        status_codes[status] += 1
-        i += 1
-
+    for line in sys.stdin:
+        tokens = line.split()
+        if len(tokens) >= 2:
+            a = i
+            if tokens[-2] in status_tally:
+                status_tally[tokens[-2]] += 1
+                i += 1
+            try:
+                file_size += int(tokens[-1])
+                if a == i:
+                    i += 1
+            except:
+                if a == i:
+                    continue
         if i % 10 == 0:
-            printer()
-    printer()
-except KeyboardInterrupt as e:
-    printer()
-    raise
+            print("File size: {:d}".format(file_size))
+            for key, value in sorted(status_tally.items()):
+                if value:
+                    print("{:s}: {:d}".format(key, value))
+    print("File size: {:d}".format(file_size))
+    for key, value in sorted(status_tally.items()):
+        if value:
+            print("{:s}: {:d}".format(key, value))
+
+except KeyboardInterrupt:
+    print("File size: {:d}".format(file_size))
+    for key, value in sorted(status_tally.items()):
+        if value:
+            print("{:s}: {:d}".format(key, value))
