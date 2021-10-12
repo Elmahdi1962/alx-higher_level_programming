@@ -2,10 +2,16 @@
 '''task 7 module'''
 
 
-import sys, 5-save_to_json_file, 6-load_from_json_file
+import sys
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-arglist = list(sys.argv)
+arglist = list(sys.argv[1:])
 
-arglist += load_from_json_file('add_item.json')
+try:
+    old_data = load_from_json_file('add_item.json')
+except Exception:
+    old_data = []
 
-save_to_json_file(arglist, 'add_item.json')
+old_data.extend(arglist)
+save_to_json_file(old_data, 'add_item.json')
