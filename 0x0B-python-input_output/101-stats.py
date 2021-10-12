@@ -37,3 +37,4 @@ for line in sys.stdin:
     signal.signal(signal.SIGINT, printer)
     if i >= 10:
         printer(1, 1)
+        i = 0
