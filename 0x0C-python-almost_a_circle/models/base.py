@@ -32,3 +32,25 @@ class Base:
         return json.dumps(list_dictionaries)
 
     # ***************** End of Static Methods *****************
+
+    # ***************** Class Methods *****************
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        '''writes the JSON string representation of list_objs to a file'''
+        if cls.__name__ == 'Rectangle':
+            file_name = 'Rectangle.json'
+        else:
+            file_name = 'Square.json'
+
+        if list_objs is None:
+            list_objs = []
+        else:
+            list_objs = list(map(lambda obj: obj.to_dictionary(), list_objs))
+
+        json_list_objs = Base.to_json_string(list_objs)
+
+        with open(file_name, mode='w', encoding='utf-8') as file:
+            file.write(json_list_objs)
+
+    # ***************** End of Class Methods *****************
