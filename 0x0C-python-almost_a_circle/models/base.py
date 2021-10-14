@@ -3,6 +3,7 @@
 
 
 import json
+import csv
 from os import path
 
 
@@ -94,5 +95,60 @@ class Base:
             obj_list.append(obj)
 
         return obj_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''saves a list of objects to a csv file.
+        custum csv serializer
+        '''
+        if cls.__name__ == 'Rectangle':
+            file_name = 'Rectangle.csv'
+        else:
+            file_name = 'Square.csv'
+
+        list_dicts = [obj.to_dictionary() for obj in list_objs]
+
+        with open(file_name, mode='w', encoding='utf-8') as file:
+            if file_name == 'Rectangle.csv':
+                field_names = ['id', 'width', 'height', 'x', 'y']
+            else:
+                field_names = ['id', 'size', 'x', 'y']
+            csv_writer = csv.DictWriter(file, delimiter=',',
+                                        fieldnames=field_names)
+            csv_writer.writeheader()
+
+            for dict in list_dicts:
+                csv_writer.writerow(dict)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''loads data from csv file
+        and return a list or objects depends on the filename.
+        custom csv deserializer
+        '''
+        if cls.__name__ == 'Rectangle':
+            file_name = 'Rectangle.csv'
+        else:
+            file_name = 'Square.csv'
+
+        list_dicts = []
+        with open(file_name, mode='r', encoding='utf-8') as file:
+            csv_reader = csv.DictReader(file, delimiter=',')
+
+            for line in csv_reader:
+                list_dicts.append(line)
+
+        for i in range(len(list_dicts)):
+            for key, value in list_dicts[i].items():
+                try:
+                    list_dicts[i][key] = int(value)
+                except Exception:
+                    continue
+
+        list_objs = []
+        for d in list_dicts:
+            new_obj = cls.create(**d)
+            list_objs.append(new_obj)
+        return list_objs
 
     # ***************** End of Class Methods *****************
