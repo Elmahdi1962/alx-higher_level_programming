@@ -3,6 +3,7 @@
 
 
 import json
+from os import path
 
 
 class Base:
@@ -68,9 +69,30 @@ class Base:
         initialized with values in dictionary
         '''
         # creating dummy instance
-        new_obj = cls(1, 1, 1, 1, 1)
+        new_obj = cls(1, 1, 1, 1)
         # updating it using the update method
         new_obj.update(**dictionary)
         return new_obj
+
+    @classmethod
+    def load_from_file(cls):
+        '''returns a list of instances from the json file depends on the cls'''
+        if cls.__name__ == 'Rectangle':
+            file_name = 'Rectangle.json'
+        else:
+            file_name = 'Square.json'
+
+        if not path.exists(file_name) and not path.isfile(file_name):
+            return []
+
+        with open(file_name, mode='r', encoding='utf-8')as file:
+            data = cls.from_json_string(file.read())
+
+        obj_list = []
+        for d in data:
+            obj = cls.create(**d)
+            obj_list.append(obj)
+
+        return obj_list
 
     # ***************** End of Class Methods *****************
