@@ -2,6 +2,7 @@
 '''rectangle Module / task 2'''
 
 from .base import Base
+from sys import stdout
 
 
 class Rectangle(Base):
@@ -82,4 +83,10 @@ class Rectangle(Base):
             the calculation result "the area"
         '''
         return self.width * self.height
+
+    def display(self):
+        '''prints the rectangle instance with the # character'''
+        buffer = ['#' * self.width for h in range(self.height)]
+        print('\n'.join(buffer), file=stdout)
+
     # *********** End of Instance Methods Section ************
