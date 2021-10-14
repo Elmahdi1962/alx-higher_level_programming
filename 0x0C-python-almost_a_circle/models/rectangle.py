@@ -74,9 +74,11 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError('y must be >= 0')
         self.__y = value
-    # ********* End of Properties Setters and Getters Section ***********
 
-    # *********** Instance Methods Section ************
+    # **** End of Properties Setters and Getters Section *****
+
+    # *************** Instance Methods Section ***************
+
     def area(self):
         '''calculates the rectangle area
         Returns:
@@ -88,6 +90,18 @@ class Rectangle(Base):
         '''prints the rectangle instance with the # character'''
         buffer = [' ' * self.x + '#' * self.width for h in range(self.height)]
         print('\n' * self.y + '\n'.join(buffer), file=stdout)
+
+    def update(self, *args):
+        '''Updates the instance attributes from
+        the arguments passed in a strict order
+        '''
+        i = 0
+        attributes = ['id', 'width', 'height', 'x', 'y']
+        for attr in attributes:
+            if i > len(args) - 1:
+                break
+            setattr(self, attr, args[i])
+            i += 1
 
     # *********** End of Instance Methods Section ************
 
