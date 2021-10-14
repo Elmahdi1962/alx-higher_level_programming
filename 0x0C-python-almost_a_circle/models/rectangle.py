@@ -110,6 +110,16 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
+    def to_dictionary(self):
+        '''returns the dictionary representation of a Rectangle instance'''
+        return {
+                'id': self.id,
+                'x': self.x,
+                'y': self.y,
+                'width': self.width,
+                'height': self.height
+                }
+
     # *********** End of Instance Methods Section ************
 
     # **************** Magic Methods Section *****************

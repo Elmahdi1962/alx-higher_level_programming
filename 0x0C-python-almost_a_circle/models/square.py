@@ -26,6 +26,27 @@ class Square(Rectangle):
 
     # ********** End of Getters and Setters Section ****
 
+    # ********** Instance Methods Section **************
+
+    def update(self, *args, **kwargs):
+        '''Updates the instance attributes from
+        the arguments passed in a strict order
+        or from the kwargs
+        '''
+        i = 0
+        attributes = ['id', 'size', 'x', 'y']
+        if len(args) > 0:
+            for attr in attributes:
+                if i > len(args) - 1:
+                    break
+                setattr(self, attr, args[i])
+                i += 1
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    # ********** End of Instace Methods Section ********
+
     # ********** Magic Methods Section *****************
 
     def __str__(self):
