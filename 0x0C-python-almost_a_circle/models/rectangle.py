@@ -90,3 +90,10 @@ class Rectangle(Base):
         print('\n'.join(buffer), file=stdout)
 
     # *********** End of Instance Methods Section ************
+
+    # **************** Magic Methods Section *****************
+    def __str__(self):
+        return (f'[Rectangle] ({self.id}) {self.x}/{self.y}'
+                f' - {self.width}/{self.height}')
+
+    # ************ End of Magic Methods Section **************
