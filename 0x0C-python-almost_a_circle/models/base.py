@@ -62,4 +62,15 @@ class Base:
         with open(file_name, mode='w', encoding='utf-8') as file:
             file.write(json_list_objs)
 
+    @classmethod
+    def create(cls, **dictionary):
+        '''creates new object of type cls and
+        initialized with values in dictionary
+        '''
+        # creating dummy instance
+        new_obj = cls(1, 1, 1, 1, 1)
+        # updating it using the update method
+        new_obj.update(**dictionary)
+        return new_obj
+
     # ***************** End of Class Methods *****************
