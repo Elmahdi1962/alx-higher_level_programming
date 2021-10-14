@@ -31,6 +31,15 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
+    def from_json_string(json_string):
+        '''returns a list object of the json string
+        represenation json_string
+        '''
+        if json_string is None or len(json_string) <= 0:
+            return []
+        else:
+            return json.loads(json_string)
+
     # ***************** End of Static Methods *****************
 
     # ***************** Class Methods *****************
