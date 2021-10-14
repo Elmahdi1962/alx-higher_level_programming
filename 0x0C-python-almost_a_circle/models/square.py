@@ -11,7 +11,22 @@ class Square(Rectangle):
         '''Initialization of the instance'''
         super().__init__(size, size, x, y, id)
 
-    # ********** Magic Methods Section **********
+    # ********** Getters and Setters Section ***********
+
+    @property
+    def size(self):
+        '''retrieves the size => width attribute'''
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        '''sets the new vale to the size attribute => width and height'''
+        self.width = value
+        self.height = value
+
+    # ********** End of Getters and Setters Section ****
+
+    # ********** Magic Methods Section *****************
 
     def __str__(self):
         '''returns the string representation of the instance'''
