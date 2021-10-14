@@ -86,8 +86,8 @@ class Rectangle(Base):
 
     def display(self):
         '''prints the rectangle instance with the # character'''
-        buffer = ['#' * self.width for h in range(self.height)]
-        print('\n'.join(buffer), file=stdout)
+        buffer = [' ' * self.x + '#' * self.width for h in range(self.height)]
+        print('\n' * self.y + '\n'.join(buffer), file=stdout)
 
     # *********** End of Instance Methods Section ************
 
