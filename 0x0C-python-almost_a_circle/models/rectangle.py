@@ -8,6 +8,7 @@ from sys import stdout
 class Rectangle(Base):
     '''Rectangle Class that inherits from Base Class'''
     def __init__(self, width, height, x=0, y=0, id=None):
+        '''Initialisation of the instance'''
         super().__init__(id)
         self.width = width
         self.height = height
@@ -15,6 +16,7 @@ class Rectangle(Base):
         self.y = y
 
     # *********** Properties Setters and Getters Section *************
+
     #  width Property
     @property
     def width(self):
@@ -106,7 +108,9 @@ class Rectangle(Base):
     # *********** End of Instance Methods Section ************
 
     # **************** Magic Methods Section *****************
+
     def __str__(self):
+        '''returns the string representation fo the instance'''
         return (f'[Rectangle] ({self.id}) {self.x}/{self.y}'
                 f' - {self.width}/{self.height}')
 
