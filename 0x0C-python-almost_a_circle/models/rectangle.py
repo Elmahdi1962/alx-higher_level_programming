@@ -13,6 +13,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    # *********** Properties Setters and Getters Section *************
     #  width Property
     @property
     def width(self):
@@ -72,3 +73,13 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError('y must be >= 0')
         self.__y = value
+    # ********* End of Properties Setters and Getters Section ***********
+
+    # *********** Instance Methods Section ************
+    def area(self):
+        '''calculates the rectangle area
+        Returns:
+            the calculation result "the area"
+        '''
+        return self.width * self.height
+    # *********** End of Instance Methods Section ************
