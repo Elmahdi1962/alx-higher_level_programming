@@ -93,17 +93,22 @@ class Rectangle(Base):
         buffer = [' ' * self.x + '#' * self.width for h in range(self.height)]
         print('\n' * self.y + '\n'.join(buffer), file=stdout)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''Updates the instance attributes from
         the arguments passed in a strict order
+        or from the kwargs
         '''
         i = 0
         attributes = ['id', 'width', 'height', 'x', 'y']
-        for attr in attributes:
-            if i > len(args) - 1:
-                break
-            setattr(self, attr, args[i])
-            i += 1
+        if len(args) > 0:
+            for attr in attributes:
+                if i > len(args) - 1:
+                    break
+                setattr(self, attr, args[i])
+                i += 1
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     # *********** End of Instance Methods Section ************
 
