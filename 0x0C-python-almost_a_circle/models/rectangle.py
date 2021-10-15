@@ -91,7 +91,7 @@ class Rectangle(Base):
     def display(self):
         '''prints the rectangle instance with the # character'''
         buffer = [' ' * self.x + '#' * self.width for h in range(self.height)]
-        print('\n' * self.y + '\n'.join(buffer), file=stdout)
+        print('\n' * self.y + '\n'.join(buffer))
 
     def update(self, *args, **kwargs):
         '''Updates the instance attributes from
