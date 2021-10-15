@@ -4,6 +4,8 @@
 
 import json
 import csv
+import turtle
+from math import sqrt
 from os import path
 
 
@@ -33,6 +35,7 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
+    @staticmethod
     def from_json_string(json_string):
         '''returns a list object of the json string
         represenation json_string
@@ -41,6 +44,86 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''opens a window and draws all the Rectangles and
+        squares in the lists passed to it
+        args:
+            list_ractangles (Rectangle): list of rectangle objects
+            list_squares (Square): list of square objects
+        '''
+        # finding the biggest width and height and number of shapes
+        big_w = 0
+        big_h = 0
+        num_shapes = 0
+        for rec in list_rectangles:
+            bigt_w = rec.width if rec.width > big_w else big_w
+            big_h = rec.height if rec.height > big_h else big_h
+            num_shapes += 1
+        for sq in list_squares:
+            big_w = sq.width if sq.width > big_w else big_w
+            big_h = sq.height if sq.height > big_h else big_h
+            num_shapes += 1
+
+        # calculate screen size
+        per_side = sqrt(num_shapes)
+        add_one = 1 if type(per_side) is float else 0
+        screen_width = (int(per_side) + add_one) * big_w
+        screen_height = (int(per_side) + add_one) * big_h
+
+        # starting position of each row of drawings
+        pos_w = -(screen_width / 2)
+        pos_h = (screen_height / 2)
+
+        # create turtle with name 't' and screen window and edit screen size
+        window = turtle.Screen()
+        window.setup(screen_width, screen_height, 0, 0)
+
+        t = turtle.Turtle()
+        turtle.bgcolor('black')
+        turtle.title('Super Shape Painter XPlus Ver 1.0.0')
+        # draw a border for  the screen
+        b = turtle.Turtle()
+        b.speed(0)
+        b.hideturtle()
+        b.pensize(3)
+        b.color('yellow')
+        b.penup()
+        b.setpos(pos_w - 2, pos_h + 2)
+        b.pendown()
+        b.fd(screen_width + 4)
+        b.right(90)
+        b.fd(screen_height + 4)
+        b.right(90)
+        b.fd(screen_width + 4)
+        b.right(90)
+        b.fd(screen_height + 4)
+        b.right(90)
+
+        t.speed(10)
+        t.penup()
+        t.setpos(pos_w, pos_h)
+        num_of_draws = 0
+        for obj in list_rectangles:
+            if (num_of_draws >= per_side):
+                num_of_draws = 0
+                t.penup()
+                pos_h = pos_h - big_h
+                t.setpos(pos_w, pos_h)
+            obj.draw_shape(t, obj, big_w)
+            num_of_draws += 1
+
+        for obj in list_squares:
+            if (num_of_draws >= per_side):
+                num_of_draws = 0
+                t.penup()
+                pos_h = pos_h - big_h
+                t.setpos(pos_w, pos_h)
+            obj.draw_shape(t, obj, big_w)
+            num_of_draws += 1
+        t.hideturtle()
+        window.exitonclick()
 
     # ***************** End of Static Methods *****************
 
@@ -150,5 +233,23 @@ class Base:
             new_obj = cls.create(**d)
             list_objs.append(new_obj)
         return list_objs
+
+    @classmethod
+    def draw_shape(cls, t, obj, big_w):
+        '''draw th shape of the class passed to it'''
+        t.begin_fill()
+        t.fillcolor('red' if cls.__name__ == 'Rectangle' else 'Blue')
+        t.pendown()
+        t.fd(obj.width)
+        t.right(90)
+        t.fd(obj.height)
+        t.right(90)
+        t.fd(obj.width)
+        t.right(90)
+        t.fd(obj.height)
+        t.end_fill()
+        t.right(90)
+        t.penup()
+        t.fd(big_w)
 
     # ***************** End of Class Methods *****************
