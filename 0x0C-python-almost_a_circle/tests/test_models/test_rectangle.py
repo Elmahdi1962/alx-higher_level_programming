@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''UnitTesting  the base module'''
+'''UnitTesting  the Rectangle module'''
 
 
 import unittest
@@ -12,7 +12,7 @@ import inspect
 from models.rectangle import Rectangle
 
 
-class TestBase(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
     '''this class for testing the Rectangle class'''
 
     def test_pep_style(self):
@@ -45,31 +45,73 @@ class TestBase(unittest.TestCase):
         self.assertEqual(obj.x, 0)  # x
         self.assertEqual(obj.y, 0)  # y
         self.assertEqual(obj.id, 12)  # id
+
+    def test_Rectangle_area(self):
+        '''test the area method in the Rectangle class'''
+        obj = Rectangle(5, 2, 0, 0, 12)
         self.assertEqual(obj.area(), 10)  # area
-        buf = StringIO()
-        with redirect_stdout(buf):
-            obj.display()
-        self.assertEqual(buf.getvalue(), '#####\n#####\n')  # display
-        obj.update(13, 4, 1, 1, 1)  # update using non named args
+
+    def test_Rectangle_obj_update(self):
+        '''testing the update function of the Rectangle class'''
+        obj = Rectangle(5, 2, 0, 0, 7)
+
+        # update using non named args
+        obj.update(13, 4, 1, 1, 1)
         self.assertEqual(obj.height, 1)  # height
         self.assertEqual(obj.width, 4)  # width
         self.assertEqual(obj.x, 1)  # x
         self.assertEqual(obj.y, 1)  # y
         self.assertEqual(obj.id, 13)  # id
         self.assertEqual(obj.area(), 4)  # area
+
+        # update using non named args with wrong type
+        with self.assertRaises(TypeError):
+            obj.update(13, '4', 1, 1, 1)
+
+        # update using non named args with wrong value
+        with self.assertRaises(ValueError):
+            obj.update(13, 0, 1, 1, 1)
+
+        # update using named args
         obj.update(
                     id=15,
                     width=6,
                     height=3,
                     x=2,
                     y=2
-                    )  # update using named args
+                    )
         self.assertEqual(obj.height, 3)  # height
         self.assertEqual(obj.width, 6)  # width
         self.assertEqual(obj.x, 2)  # x
         self.assertEqual(obj.y, 2)  # y
         self.assertEqual(obj.id, 15)  # id
         self.assertEqual(obj.area(), 18)  # area
+
+        # update using named args with wrong value
+        with self.assertRaises(ValueError):
+            obj.update(
+                        id=15,
+                        width=4,
+                        height=2,
+                        x=-5,
+                        y='6'
+                        )
+        self.assertEqual(obj.height,2)  # height
+        self.assertEqual(obj.width, 4)  # width
+        self.assertEqual(obj.x, 2)  # x
+        self.assertEqual(obj.y, 2)  # y
+        self.assertEqual(obj.id, 15)  # id
+        self.assertEqual(obj.area(), 8)  # area
+
+        # update using named args with wrong type
+        with self.assertRaises(TypeError):
+            obj.update(
+                        id=15,
+                        width=6,
+                        height=3,
+                        x=5,
+                        y='6'
+                        )
 
     def test_rectangle_to_dictionary(self):
         '''test the to_dictionary method in the rectangle class'''
@@ -111,3 +153,11 @@ class TestBase(unittest.TestCase):
         with redirect_stdout(buf):
             print(obj)
             self.assertEqual(buf.getvalue(), '[Rectangle] (10) 2/2 - 1/1\n')
+
+    def test_Ractangle_display(self):
+        '''testing the display method in the Rectangle class'''
+        obj = Rectangle(5, 2, 2, 3, 100)
+        buf = StringIO()
+        with redirect_stdout(buf):
+            obj.display()
+        self.assertEqual(buf.getvalue(), '\n\n\n  #####\n  #####\n')  # display
