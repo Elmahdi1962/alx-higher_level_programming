@@ -153,8 +153,11 @@ class Base:
         '''creates new object of type cls and
         initialized with values in dictionary
         '''
+        # check who is calling
+        if cls.__name__ == 'Base':
+            return
         # creating dummy instance
-        new_obj = cls(1, 1, 1, 1)
+        new_obj = cls(1, 1)
         # updating it using the update method
         new_obj.update(**dictionary)
         return new_obj

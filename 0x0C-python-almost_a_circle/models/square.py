@@ -43,6 +43,8 @@ class Square(Rectangle):
                 i += 1
         else:
             for key, value in kwargs.items():
+                if key not in attributes:
+                    continue
                 setattr(self, key, value)
 
     def to_dictionary(self):

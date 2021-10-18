@@ -27,8 +27,8 @@ class TestBase(unittest.TestCase):
         '''creating an instance of the class Base with out passing the id'''
         obj = Base()
         obj2 = Base()
-        self.assertEqual(obj.id, 1)
-        self.assertEqual(obj2.id, 2)
+        self.assertEqual(obj.id, 5)
+        self.assertEqual(obj2.id, 6)
 
     def test_init_base_obj_2(self):
         '''creating an instance of the class Base with specifying the id'''
@@ -122,6 +122,60 @@ class TestBase(unittest.TestCase):
         for square in list_squares_output:
             self.assertIsInstance(square, Square)
 
+    def test_create(self):
+            '''Tests the create method of the Base class.
+            '''
+            polygon = Base.create(**{
+                'id': '89',
+            })
+            self.assertIsNone(polygon)
+            # region Rectangle
+            polygon = Rectangle.create(**{
+                'id': '89', 'width': 3, 'height': 5,
+                'x': 8, 'y': 16
+            })
+            self.assertEqual(polygon.id, '89')
+            self.assertEqual(polygon.width, 3)
+            self.assertEqual(polygon.height, 5)
+            self.assertEqual(polygon.x, 8)
+            self.assertEqual(polygon.y, 16)
+            polygon = Rectangle.create(**{
+                'id': None, 'width': 3, 'height': 5,
+                'x': 8, 'y': 16, 'foo': 23
+            })
+            self.assertEqual(polygon.id, None)
+            self.assertEqual(polygon.width, 3)
+            self.assertEqual(polygon.height, 5)
+            self.assertEqual(polygon.x, 8)
+            self.assertEqual(polygon.y, 16)
+            with self.assertRaises(AttributeError):
+                print(polygon.foo)
+            # endregion
+            # region Square
+            polygon = Square.create(**{
+                'id': '89', 'width': 3, 'height': 5,
+                'size': 15, 'x': 8, 'y': 16
+            })
+            self.assertEqual(polygon.id, '89')
+            self.assertEqual(polygon.size, 15)
+            self.assertEqual(polygon.x, 8)
+            self.assertEqual(polygon.y, 16)
+            polygon = Square.create(**{
+                'id': None, 'width': 13, 'height': 25,
+                'x': 8, 'y': 16, 'foo': 34
+            })
+            self.assertEqual(polygon.id, None)
+            self.assertNotEqual(polygon.size, 13)
+            self.assertNotEqual(polygon.width, 13)
+            self.assertNotEqual(polygon.height, 25)
+            self.assertEqual(polygon.size, polygon.width)
+            self.assertEqual(polygon.size, polygon.height)
+            self.assertEqual(polygon.x, 8)
+            self.assertEqual(polygon.y, 16)
+            with self.assertRaises(AttributeError):
+                print(polygon.foo)
+            # endregion
+
 class Test_Base_csv_file_save_load(unittest.TestCase):
     """Unittests for testing save_to_file_csv method of Base class."""
 
@@ -194,7 +248,7 @@ class Test_Base_csv_file_save_load(unittest.TestCase):
             Square.save_to_file_csv([], 1)
 
 
-class TestBase_load_from_file_csv(unittest.TestCase):
+class Test_Base_load_from_file_csv(unittest.TestCase):
     """Unittests for testing load_from_file_csv method of Base class."""
 
     @classmethod
