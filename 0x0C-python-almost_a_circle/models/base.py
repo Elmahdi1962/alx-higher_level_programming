@@ -28,9 +28,12 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''returns the Json string reprisentaion
-        of the argument list_dictionaries
-        '''
+        """Creates the JSON representation of a list of dictionaries.
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        Returns:
+            str: A JSON representation of the list of dictionaries.
+        """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         if len(list_dictionaries) <= 0:
