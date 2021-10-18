@@ -32,9 +32,9 @@ class Base:
         of the argument list_dictionaries
         '''
         if list_dictionaries is None or list_dictionaries == []:
-            return json.dumps([])
+            return []
         if len(list_dictionaries) <= 0:
-            return json.dumps([])
+            return []
         return json.dumps(list_dictionaries)
 
     @staticmethod
