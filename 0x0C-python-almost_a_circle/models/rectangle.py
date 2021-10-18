@@ -8,7 +8,14 @@ from sys import stdout
 class Rectangle(Base):
     '''Rectangle Class that inherits from Base Class'''
     def __init__(self, width, height, x=0, y=0, id=None):
-        '''Initialisation of the instance'''
+        """Initializes a new rectangle object.
+        Args:
+            width (int): The width of this rectangle.
+            height (int): The height of this rectangle.
+            x (int): The horizontal position of this rectangle.
+            y (int): The vertical position of this rectangle.
+            id (int): The id of this rectangle.
+        """
         super().__init__(id)
         self.width = width
         self.height = height
