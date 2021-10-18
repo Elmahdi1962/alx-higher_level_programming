@@ -62,6 +62,8 @@ class Square(Rectangle):
 
     def __str__(self):
         '''returns the string representation of the instance'''
-        return f'[Square] ({self.id}) {self.x}/{self.y} - {self.width}'
+        fh = '[Square] ({:d}) {:d}/{:d}'.format(self.id, self.x, self.y)
+        sh = ' - {:d}'.format(self.width)
+        return fh + sh
 
     # ********** End of Magic Methods Section **********
