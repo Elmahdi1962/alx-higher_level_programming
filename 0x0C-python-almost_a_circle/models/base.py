@@ -135,8 +135,10 @@ class Base:
         '''writes the JSON string representation of list_objs to a file'''
         if cls.__name__ == 'Rectangle':
             file_name = 'Rectangle.json'
-        else:
+        elif cls.__name__ == 'Square':
             file_name = 'Square.json'
+        else:
+            return
 
         if list_objs is None:
             list_objs = []
@@ -167,8 +169,10 @@ class Base:
         '''returns a list of instances from the json file depends on the cls'''
         if cls.__name__ == 'Rectangle':
             file_name = 'Rectangle.json'
-        else:
+        elif cls.__name__ == 'Square':
             file_name = 'Square.json'
+        else:
+            return
 
         if not path.exists(file_name) and not path.isfile(file_name):
             return []
@@ -190,8 +194,10 @@ class Base:
         '''
         if cls.__name__ == 'Rectangle':
             file_name = 'Rectangle.csv'
-        else:
+        elif cls.__name__ == 'Square':
             file_name = 'Square.csv'
+        else:
+            return
 
         if list_objs is not None:
             list_dicts = [obj.to_dictionary() for obj in list_objs]
@@ -213,13 +219,15 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         '''loads data from csv file
-        and return a list or objects depends on the filename.
+        and return a list of objects depends on the filename.
         custom csv deserializer
         '''
         if cls.__name__ == 'Rectangle':
             file_name = 'Rectangle.csv'
-        else:
+        elif cls.__name__ == 'Square':
             file_name = 'Square.csv'
+        else:
+            return
 
         list_dicts = []
         if not os.path.exists(file_name):
@@ -241,6 +249,7 @@ class Base:
         for d in list_dicts:
             new_obj = cls.create(**d)
             list_objs.append(new_obj)
+
         return list_objs
 
     @classmethod
