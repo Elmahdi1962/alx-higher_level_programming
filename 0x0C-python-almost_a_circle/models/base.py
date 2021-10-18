@@ -3,6 +3,7 @@
 
 
 import json
+import os
 import csv
 import turtle
 from math import sqrt
@@ -189,7 +190,10 @@ class Base:
         else:
             file_name = 'Square.csv'
 
-        list_dicts = [obj.to_dictionary() for obj in list_objs]
+        if list_objs is not None:
+            list_dicts = [obj.to_dictionary() for obj in list_objs]
+        else:
+            list_dicts = []
 
         with open(file_name, mode='w', encoding='utf-8') as file:
             if file_name == 'Rectangle.csv':
@@ -215,6 +219,8 @@ class Base:
             file_name = 'Square.csv'
 
         list_dicts = []
+        if not os.path.exists(file_name):
+            return []
         with open(file_name, mode='r', encoding='utf-8') as file:
             csv_reader = csv.DictReader(file, delimiter=',')
 
