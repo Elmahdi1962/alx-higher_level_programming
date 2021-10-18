@@ -2,7 +2,6 @@
 '''rectangle Module / task 2'''
 
 from .base import Base
-from sys import stdout
 
 
 class Rectangle(Base):
