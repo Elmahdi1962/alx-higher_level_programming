@@ -24,9 +24,6 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    # *********** Properties Setters and Getters Section *************
-
-    #  width Property
     @property
     def width(self):
         '''retrieves the __width attribute value
@@ -43,7 +40,6 @@ class Rectangle(Base):
             raise ValueError('width must be > 0')
         self.__width = value
 
-    #  height Property
     @property
     def height(self):
         '''retrieves the __height attribute value
@@ -60,7 +56,6 @@ class Rectangle(Base):
             raise ValueError('height must be > 0')
         self.__height = value
 
-    #  x Property
     @property
     def x(self):
         '''retrieves the __x attribute value
@@ -77,7 +72,6 @@ class Rectangle(Base):
             raise ValueError('x must be >= 0')
         self.__x = value
 
-    #  y Property
     @property
     def y(self):
         '''retrieves the __y attribute value
@@ -93,10 +87,6 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError('y must be >= 0')
         self.__y = value
-
-    # **** End of Properties Setters and Getters Section *****
-
-    # *************** Instance Methods Section ***************
 
     def area(self):
         '''calculates the rectangle area
@@ -139,13 +129,7 @@ class Rectangle(Base):
                 'height': self.height
                 }
 
-    # *********** End of Instance Methods Section ************
-
-    # **************** Magic Methods Section *****************
-
     def __str__(self):
         '''returns the string representation fo the instance'''
         return (f'[Rectangle] ({self.id}) {self.x}/{self.y}'
                 f' - {self.width}/{self.height}')
-
-    # ************ End of Magic Methods Section **************
