@@ -3,7 +3,6 @@
 
 
 import json
-import os
 import csv
 import turtle
 from math import sqrt
@@ -174,7 +173,8 @@ class Base:
         else:
             return
 
-        if not path.exists(file_name) and not path.isfile(file_name):
+        # if dosen't exist or is not a file return empty list
+        if not path.exists(file_name) or not path.isfile(file_name):
             return []
 
         with open(file_name, mode='r', encoding='utf-8')as file:
@@ -230,7 +230,8 @@ class Base:
             return
 
         list_dicts = []
-        if not os.path.exists(file_name):
+        # if dosen't exist or is not a file return empty list
+        if not path.exists(file_name) or not path.isfile(file_name):
             return []
         with open(file_name, mode='r', encoding='utf-8') as file:
             csv_reader = csv.DictReader(file, delimiter=',')
