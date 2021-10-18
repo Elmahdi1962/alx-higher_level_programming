@@ -31,8 +31,9 @@ class Base:
         '''returns the Json string reprisentaion
         of the argument list_dictionaries
         '''
-        if (list_dictionaries is None or len(list_dictionaries) <= 0 or
-                list_dictionaries == []):
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        if len(list_dictionaries) <= 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
