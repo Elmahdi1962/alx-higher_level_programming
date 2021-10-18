@@ -28,7 +28,7 @@ class TestRectangle(unittest.TestCase):
         only height and width
         '''
         obj = Rectangle(5, 8)
-        self.assertEqual(obj.id, 2)
+        self.assertEqual(obj.id, 9)
 
     def test_init_Rectangle_obj_2(self):
         '''creating an instance of the class Rectangle with specifying
