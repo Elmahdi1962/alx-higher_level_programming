@@ -163,7 +163,7 @@ class Base:
         if cls.__name__ == 'Base':
             return
         elif cls.__name__ == 'Square':
-        # creating dummy instance
+            # creating dummy instance
             new_obj = cls(1)
         elif cls.__name__ == 'Rectangle':
             new_obj = cls(1, 1)
