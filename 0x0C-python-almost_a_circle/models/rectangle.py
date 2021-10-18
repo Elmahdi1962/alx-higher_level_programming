@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-'''rectangle Module / task 2'''
-
+'''rectangle Module / task 2
+'''
 from .base import Base
 
 
@@ -8,6 +8,7 @@ class Rectangle(Base):
     '''Rectangle Class that inherits
     from Base Class
     '''
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes a new rectangle object.
         Args:
