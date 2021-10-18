@@ -5,7 +5,9 @@ from .base import Base
 
 
 class Rectangle(Base):
-    '''Rectangle Class that inherits from Base Class'''
+    '''Rectangle Class that inherits
+    from Base Class
+    '''
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes a new rectangle object.
         Args:
@@ -26,12 +28,14 @@ class Rectangle(Base):
     #  width Property
     @property
     def width(self):
-        '''retrieves the __width attribute value'''
+        '''retrieves the __width attribute value
+        '''
         return self.__width
 
     @width.setter
     def width(self, value):
-        '''sets the new value to the __width attribute'''
+        '''sets the new value to the __width attribute
+        '''
         if type(value) is not int:
             raise TypeError('width must be an integer')
         if value <= 0:
@@ -41,12 +45,14 @@ class Rectangle(Base):
     #  height Property
     @property
     def height(self):
-        '''retrieves the __height attribute value'''
+        '''retrieves the __height attribute value
+        '''
         return self.__height
 
     @height.setter
     def height(self, value):
-        '''sets the new value to the __height attribute'''
+        '''sets the new value to the __height attribute
+        '''
         if type(value) is not int:
             raise TypeError('height must be an integer')
         if value <= 0:
@@ -56,12 +62,14 @@ class Rectangle(Base):
     #  x Property
     @property
     def x(self):
-        '''retrieves the __x attribute value'''
+        '''retrieves the __x attribute value
+        '''
         return self.__x
 
     @x.setter
     def x(self, value):
-        '''sets the new value to the __x attribute'''
+        '''sets the new value to the __x attribute
+        '''
         if type(value) is not int:
             raise TypeError('x must be an integer')
         if value < 0:
@@ -71,12 +79,14 @@ class Rectangle(Base):
     #  y Property
     @property
     def y(self):
-        '''retrieves the __y attribute value'''
+        '''retrieves the __y attribute value
+        '''
         return self.__y
 
     @y.setter
     def y(self, value):
-        '''sets the new value to the __y attribute'''
+        '''sets the new value to the __y attribute
+        '''
         if type(value) is not int:
             raise TypeError('y must be an integer')
         if value < 0:
