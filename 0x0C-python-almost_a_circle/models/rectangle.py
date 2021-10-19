@@ -131,6 +131,6 @@ class Rectangle(Base):
 
     def __str__(self):
         '''returns the string representation fo the instance'''
-        fh = '[Rectangle] ({:d}) {:d}/{:d}'.format(self.id, self.x, self.y)
+        fh = '[Rectangle] ({}) {:d}/{:d}'.format(self.id, self.x, self.y)
         sh = ' - {:d}/{:d}'.format(self.width, self.height)
         return fh + sh

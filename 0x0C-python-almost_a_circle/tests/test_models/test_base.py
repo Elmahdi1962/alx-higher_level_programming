@@ -420,12 +420,12 @@ class TestBase(unittest.TestCase):
         # region Base
         TestBase.remove_files()
         Base.save_to_file(None)
-        self.assertEqual(TestBase.read_text_file('Base.json'), '')
+        self.assertEqual(TestBase.read_text_file('Base.json'), '[]')
         self.assertFalse(os.path.isfile('Rectangle.json'))
         self.assertFalse(os.path.isfile('Square.json'))
         TestBase.remove_files()
         Base.save_to_file([])
-        self.assertEqual(TestBase.read_text_file('Base.json'), '')
+        self.assertEqual(TestBase.read_text_file('Base.json'), '[]')
         self.assertFalse(os.path.isfile('Square.json'))
         self.assertFalse(os.path.isfile('Rectangle.json'))
         with self.assertRaises(AttributeError):
@@ -433,7 +433,7 @@ class TestBase(unittest.TestCase):
             Base.save_to_file([Base(3), Base(10)])
         TestBase.remove_files()
         Base.save_to_file([Square(3, 0, 0, 1), Square(10, 9, 7, 8)])
-        self.assertEqual(TestBase.read_text_file('Base.json'), '')
+        self.assertEqual(TestBase.read_text_file('Base.json'), '[]')
         self.assertFalse(os.path.isfile('Square.json'))
         self.assertFalse(os.path.isfile('Rectangle.json'))
         polygons = [Rectangle(5, 13, 0, 0, 1), Rectangle(10, 2, 9, 7, 8)]

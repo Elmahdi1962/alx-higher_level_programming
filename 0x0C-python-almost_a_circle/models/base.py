@@ -4,6 +4,7 @@
 
 import json
 import csv
+import os
 import turtle
 from math import sqrt
 from os import path
@@ -45,10 +46,10 @@ class Base:
         '''returns a list object of the json string
         represenation json_string
         '''
-        if json_string is None or len(json_string) <= 0:
+        if (json_string is None) or (len(json_string.strip()) == 0):
             return []
         else:
-            return json.loads(json_string)
+            return json.JSONDecoder().decode(json_string)
 
     @staticmethod
     def draw(list_rectangles, list_squares):
@@ -137,22 +138,14 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         '''writes the JSON string representation of list_objs to a file'''
-        if cls.__name__ == 'Rectangle':
-            file_name = 'Rectangle.json'
-        elif cls.__name__ == 'Square':
-            file_name = 'Square.json'
-        else:
-            return
-
-        if list_objs is None:
-            list_objs = []
-        else:
-            list_objs = list(map(lambda obj: obj.to_dictionary(), list_objs))
-
-        json_list_objs = Base.to_json_string(list_objs)
-
+        file_name = '{}.json'.format(cls.__name__)
+        dict_list = []
+        if list_objs is not None:
+            for obj in list_objs:
+                if type(obj) is cls:
+                    dict_list.append(obj.to_dictionary())
         with open(file_name, mode='w', encoding='utf-8') as file:
-            file.write(json_list_objs)
+            file.write(Base.to_json_string(dict_list))
 
     @classmethod
     def create(cls, **dictionary):
@@ -175,26 +168,16 @@ class Base:
     @classmethod
     def load_from_file(cls):
         '''returns a list of instances from the json file depends on the cls'''
-        if cls.__name__ == 'Rectangle':
-            file_name = 'Rectangle.json'
-        elif cls.__name__ == 'Square':
-            file_name = 'Square.json'
-        else:
-            return
-
-        # if dosen't exist or is not a file return empty list
-        if not path.exists(file_name) or not path.isfile(file_name):
-            return []
-
-        with open(file_name, mode='r', encoding='utf-8')as file:
-            data = cls.from_json_string(file.read())
-
-        obj_list = []
-        for d in data:
-            obj = cls.create(**d)
-            obj_list.append(obj)
-
-        return obj_list
+        file_name = '{}.json'.format(cls.__name__)
+        lines = []
+        if os.path.isfile(file_name):
+            with open(file_name, mode='r') as file:
+                for line in file.readlines():
+                    lines.append(line)
+        txt = ''.join(lines)
+        attr_dicts = cls.from_json_string(txt)
+        cls_list = list(map(lambda x: cls.create(**x), attr_dicts))
+        return cls_list
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
