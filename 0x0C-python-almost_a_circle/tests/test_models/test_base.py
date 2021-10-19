@@ -23,7 +23,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(check.total_errors, 0,
                          'PEP8 style errors: %d' % check.total_errors)
 
-    def test_init_1(self):
+    def test_init(self):
         '''creating an instance of the class Base with out passing the id'''
         obj = Base()
         obj2 = Base()
