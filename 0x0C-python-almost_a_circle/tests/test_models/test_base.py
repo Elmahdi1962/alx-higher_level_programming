@@ -49,9 +49,10 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", mode="r") as myFile:
             self.assertEqual([], json.load(myFile))
 
-
     def test_to_json_string_AND_from_json_string_rec(self):
-        '''test the to_json_string and from_json_string methods with the Rectangle class'''
+        '''test the to_json_string and from_json_string methods
+        with the Rectangle class
+        '''
         list_input = [
             {'id': 89, 'width': 10, 'height': 4},
             {'id': 7, 'width': 1, 'height': 7}
@@ -63,7 +64,9 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(list_output, list)
 
     def test_to_json_string_AND_from_json_string_sqr(self):
-        '''test the to_json_string and from_json_string methods with the Square class'''
+        '''test the to_json_string and from_json_string methods
+        with the Square class
+        '''
         list_input = [
             {'id': 99, 'size': 10},
             {'id': 9, 'size': 1}
@@ -91,7 +94,7 @@ class TestBase(unittest.TestCase):
 
         # load data from the rectangle json file
         list_rectangles_output = Rectangle.load_from_file()
-        #check if the objects in the lists are rectangles
+        # check if the objects in the lists are rectangles
         for rect in list_rectangles_input:
             self.assertIsInstance(rect, Rectangle)
 
@@ -175,6 +178,7 @@ class TestBase(unittest.TestCase):
             with self.assertRaises(AttributeError):
                 print(polygon.foo)
             # endregion
+
 
 class Test_Base_csv_file_save_load(unittest.TestCase):
     """Unittests for testing save_to_file_csv method of Base class."""

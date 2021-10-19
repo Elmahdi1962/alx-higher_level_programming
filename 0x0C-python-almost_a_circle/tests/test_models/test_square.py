@@ -101,7 +101,7 @@ class TestSquare(unittest.TestCase):
                         x=-5,
                         y=6
                         )
-        self.assertEqual(obj.height,4)  # height
+        self.assertEqual(obj.height, 4)  # height
         self.assertEqual(obj.width, 4)  # width
         self.assertEqual(obj.size, 4)  # size
         self.assertEqual(obj.x, 2)  # x

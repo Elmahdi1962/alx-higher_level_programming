@@ -96,7 +96,7 @@ class TestRectangle(unittest.TestCase):
                         x=-5,
                         y='6'
                         )
-        self.assertEqual(obj.height,2)  # height
+        self.assertEqual(obj.height, 2)  # height
         self.assertEqual(obj.width, 4)  # width
         self.assertEqual(obj.x, 2)  # x
         self.assertEqual(obj.y, 2)  # y
