@@ -2,5 +2,5 @@
 CREATE TABEL IF NOT EXISTS unique_id(
 	id INT DEFAULT 1,
 	name VARCHAR(256),
-	CONSTRAINT unique_id UNIQUE (id)
+	UNIQUE (id)
 );
