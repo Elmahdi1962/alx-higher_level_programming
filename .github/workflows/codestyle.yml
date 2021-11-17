@@ -1,0 +1,56 @@
+name: CodeStyle
+on: [push]
+jobs:
+  Python-Code-Styling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install pep8==1.7.0
+          pip install pycodestyle==2.7.0
+      - name: Analyse the code with pycodestyle (PEP8)
+        run: |
+          Src_Files=()
+          Ignored_Files=()
+          readarray -t Src_Files < <(find . -type f | grep -oE '^.*\.py$')
+          readarray -t Ignored_Files < <([ -f '.gh_style_ignore' ] && cat '.gh_style_ignore')
+          for ((i = 0; i < "${#Src_Files[@]}"; i++)) do
+            file="${Src_Files[i]}"
+            skip="0"
+            for ((j = 0; j < "${#Ignored_Files[@]}"; j++)) do
+              if [[ "${Ignored_Files[j]}" == $file ]]; then
+                skip="1"
+                break
+              fi
+            done
+            if [[ "$skip" == "0" ]]; then
+              echo -e "\n========== $file =========="
+              pycodestyle $file
+              ~/.local/bin/pep8 $file
+            fi
+          done
+      - run: echo "This job's status is ${{ job.status }}."
+  C-Code-Styling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          main_dir="$PWD"
+          [ -d ~/tmp ] || mkdir ~/tmp
+          cd ~/tmp && git clone https://github.com/holbertonschool/Betty.git
+          [ -d ~/tmp/Betty ] && cd "$main_dir"
+      - name: Analyse the code with Betty style
+        run: |
+          Src_Files=()
+          readarray -t Src_Files < <(find . -type f | grep -oE '^.*\.(c|h)$')
+          for ((i = 0; i < "${#Src_Files[@]}"; i++)) do
+            file="${Src_Files[i]}"
+            echo -e "\n========== $file =========="
+            ~/tmp/Betty/betty-style.pl "$file"
+            ~/tmp/Betty/betty-doc.pl "$file"
+          done
