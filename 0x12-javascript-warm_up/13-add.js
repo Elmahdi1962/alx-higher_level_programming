@@ -1,7 +1,2 @@
 #!/usr/bin/node
-exports.add = function (a, b) {
-  if (a && b) {
-    return (a + b);
-  }
-  return NaN;
-};
+exports.add = function (a, b) {return (a + b);};
