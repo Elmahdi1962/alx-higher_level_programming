@@ -13,8 +13,6 @@ if (fileA !== undefined && fileB !== undefined &&
       if (error) throw error;
     });
 
-    text += '\n';
-
     text += fs.readFileSync(fileB, (error) => {
       if (error) throw error;
     });
