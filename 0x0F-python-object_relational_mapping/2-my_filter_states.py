@@ -22,9 +22,12 @@ def list_with_name():
     db = MySQLdb.connect(host=host, user=username, passwd=password,
                          db=db_name, port=port)
     cur = db.cursor()
-    cur.execute('SELECT * FROM states WHERE name = "{}"; ORDERBY id ASC;'
+    cur.execute('SELECT * FROM states WHERE name = \'{}\' ORDER BY id ASC;'
                 .format(state_name))
     result = cur.fetchall()
+    cur.close()
+    db.close()
+
 
     if result:
         for row in result:

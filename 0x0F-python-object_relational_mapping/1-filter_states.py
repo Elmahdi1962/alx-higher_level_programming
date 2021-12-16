@@ -16,9 +16,10 @@ def list_N():
     db = MySQLdb.connect(host=host, user=username, passwd=password,
                          db=db_name, port=port)
     cur = db.cursor()
-    cur.execute('SELECT * FROM states WHERE name regexp "^N."; ORDERBY id ASC')
+    cur.execute('SELECT * FROM states WHERE name regexp "^N." ORDER BY id ASC')
     result = cur.fetchall()
-
+    cur.close()
+    db.close()
     if result:
         for row in result:
             print(row)
