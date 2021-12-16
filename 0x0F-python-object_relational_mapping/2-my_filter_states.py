@@ -28,7 +28,6 @@ def list_with_name():
     cur.close()
     db.close()
 
-
     if result:
         for row in result:
             print(row)
