@@ -26,8 +26,7 @@ def list_by_state():
         )
     result = cur.fetchall()
 
-    if result:
-        print(', '.join([row[0] for row in result]))
+    print(', '.join(map(lambda x: x[0], result)))
 
     db.close()
 
