@@ -25,11 +25,11 @@ def list_by_state():
             [state_name]
         )
     result = cur.fetchall()
-    cur.close()
-    db.close()
 
     if result:
         print(', '.join([row[0] for row in result]))
+
+    db.close()
 
 
 if __name__ == '__main__':
