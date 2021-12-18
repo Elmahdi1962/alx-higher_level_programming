@@ -20,12 +20,12 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     loc_session = Session()
-    states = loc_session.query(State).order_by(State.id.asc()).all()
+    states = loc_session.query(State).all()
 
     for state in states:
         print('{}: {}'.format(state.id, state.name))
         for city in state.cities:
-            print('\t{}: {}'.format(city.id, city.name))
+            print("    {}: {}".format(city.id, city.name))
 
     loc_session.close()
     engine.dispose()
