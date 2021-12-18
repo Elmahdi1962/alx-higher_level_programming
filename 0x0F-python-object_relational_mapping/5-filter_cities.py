@@ -17,7 +17,7 @@ def list_by_state():
     db = MySQLdb.connect(host=host, user=username, passwd=password,
                          db=db_name, port=port)
     cur = db.cursor()
-    cur.execute('SELECT c.name FROM cities c LEFT JOIN states s ' +
+    cur.execute('SELECT c.name FROM cities c INNER JOIN states s ' +
                 'ON s.id = c.state_id WHERE BINARY s.name = %s ' +
                 'ORDER BY c.id ASC;', [state_name])
     result = cur.fetchall()
