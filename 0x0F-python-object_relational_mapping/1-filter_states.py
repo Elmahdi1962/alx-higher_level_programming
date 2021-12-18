@@ -23,7 +23,8 @@ def list_N():
     db.close()
     if result:
         for row in result:
-            print(row)
+            if row[1][0] == "N":
+                print(row)
 
 
 if __name__ == "__main__":
