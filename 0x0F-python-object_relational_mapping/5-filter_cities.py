@@ -17,16 +17,19 @@ def list_by_state():
     db = MySQLdb.connect(host=host, user=username, passwd=password,
                          db=db_name, port=port)
     cur = db.cursor()
-    cur.execute('SELECT c.name FROM cities c INNER JOIN states s ' +
-                'ON s.id = c.state_id WHERE ' +
-                'CAST(s.name AS BINARY) = %s ' +
-                'ORDER BY c.id ASC;', [state_name])
+    cur.execute(
+            'SELECT cities.name FROM cities' +
+            ' INNER JOIN states ON cities.state_id = states.id' +
+            ' WHERE CAST(states.name AS BINARY) = %s' +
+            ' ORDER BY cities.id ASC;',
+            [state_name]
+        )
     result = cur.fetchall()
     cur.close()
     db.close()
 
     if result:
-        print(', '.join([', '.join(row) for row in result]))
+        print(', '.join([row[0] for row in result]))
 
 
 if __name__ == '__main__':
