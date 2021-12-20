@@ -26,6 +26,6 @@ if __name__ == '__main__':
         print('{}: {}'.format(state.id, state.name))
         for city in state.cities:
             print('\t{}: {}'.format(city.id, city.name))
-
+    loc_session.commit()
     loc_session.close()
     engine.dispose()
