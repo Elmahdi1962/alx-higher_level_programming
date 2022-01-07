@@ -14,7 +14,8 @@ if __name__ == '__main__':
         'per_page': 10,
     }
 
-    res = requests.get('https://api.github.com/repos/{}/{}/commits'.format(owner, repo_name),
+    res = requests.get('https://api.github.com/repos/{}/{}/commits'.format(
+                      owner, repo_name),
                       headers=headers, params=params)
     json_res = res.json()
     for commit in json_res:
