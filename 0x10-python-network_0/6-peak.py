@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''task 6 module'''
 
+
 def find_peak(list_of_integers):
     '''finds a peak in a list of unsorted integers'''
     last_peak = None
