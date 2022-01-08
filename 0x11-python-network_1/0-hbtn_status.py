@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''task 0 script'''
 
+
 if __name__ == '__main__':
     import urllib.request
 
