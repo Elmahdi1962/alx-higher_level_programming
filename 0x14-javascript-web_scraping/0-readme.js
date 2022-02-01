@@ -6,7 +6,7 @@ if (process.argv.length > 2) {
     if (err) {
       console.log(err);
     } else {
-      console.log(data);
+      console.log(data.toString('utf-8'));
     }
   });
 }
