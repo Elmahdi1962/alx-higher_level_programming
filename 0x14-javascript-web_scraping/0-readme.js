@@ -8,5 +8,5 @@ fs.readFile(filePath, 'utf8', (err, data) => {
     console.log(err);
     return;
   }
-  console.log(data);
+  console.log(data.toString('utf-8'));
 });
