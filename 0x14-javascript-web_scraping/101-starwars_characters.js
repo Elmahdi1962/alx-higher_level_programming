@@ -8,16 +8,18 @@ if (process.argv.length > 2) {
       console.log(err);
     } else {
       const movie = JSON.parse(body);
-      movie.characters.map(char => {
-        request(char, (err, res, body) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(JSON.parse(body).name);
-          }
-        });
-        return (char);
-      });
+      const namespromises = movie.characters.map(char =>
+        new Promise((resolve, reject) => {
+          request(char, (err, res, body) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(JSON.parse(body).name);
+            }
+          });
+        })
+      );
+      Promise.all(namespromises).then(names => console.log(names.join('\n')));
     }
   });
 }
